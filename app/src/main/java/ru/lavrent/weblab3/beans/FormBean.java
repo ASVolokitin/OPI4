@@ -61,11 +61,11 @@ public class FormBean implements Serializable {
     return Arrays.asList(1f, 1.5f, 2f, 2.5f, 3f);
   }
 
-  private void updatePointerCounter(PointCounter pointCounter, Record record) {
-    if (pointCounter != null) {
-      pointCounter.countHits(record.getX(), record.getY(), record.isHit());
-    }
-  }
+  // private void updatePointerCounter(PointCounter pointCounter, Record record) {
+  // if (pointCounter != null) {
+  // pointCounter.countHits(record.getX(), record.getY(), record.isHit());
+  // }
+  // }
 
   private void updateAreaCalculator(AreaCalculator areaCalculator, float r) {
     if (areaCalculator != null) {
@@ -75,11 +75,12 @@ public class FormBean implements Serializable {
 
   private void updateCounters(Record record) {
     FacesContext facesContext = FacesContext.getCurrentInstance();
-		ServletContext servletContext = (ServletContext) facesContext.getExternalContext().getContext();
-    PointCounter pointCounter = (PointCounter) servletContext.getAttribute("pointCounterMBean");
+    ServletContext servletContext = (ServletContext) facesContext.getExternalContext().getContext();
+    // PointCounter pointCounter = (PointCounter)
+    // servletContext.getAttribute("pointCounterMBean");
     AreaCalculator areaCalculator = (AreaCalculator) servletContext.getAttribute("areaCalculatorMBean");
-    
-    updatePointerCounter(pointCounter, record);
+
+    // updatePointerCounter(pointCounter, record);
     updateAreaCalculator(areaCalculator, record.getR());
   }
 
@@ -93,7 +94,6 @@ public class FormBean implements Serializable {
     this.setY(null);
     historyBean.updateLocal();
     updateCounters(record);
-    
 
     // UIViewRoot view = FacesContext.getCurrentInstance().getViewRoot();
     // return view.getViewId() + "?faces-redirect=true";
@@ -139,7 +139,7 @@ public class FormBean implements Serializable {
   public void setR(Float r) {
     this.r = r;
     FacesContext facesContext = FacesContext.getCurrentInstance();
-		ServletContext servletContext = (ServletContext) facesContext.getExternalContext().getContext();
+    ServletContext servletContext = (ServletContext) facesContext.getExternalContext().getContext();
     AreaCalculator areaCalculator = (AreaCalculator) servletContext.getAttribute("areaCalculatorMBean");
     updateAreaCalculator(areaCalculator, this.r);
   }

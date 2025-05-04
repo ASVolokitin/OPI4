@@ -22,21 +22,24 @@ public class HistoryBean implements Serializable {
   @PostConstruct
   public void initialize() {
     updateLocal();
-    // FacesContext facesContext = FacesContext.getCurrentInstance();
-		// ServletContext servletContext = (ServletContext) facesContext.getExternalContext().getContext();
-    // PointCounter pointCounter = (PointCounter) servletContext.getAttribute("pointCounterMBean");
-
-    // if (pointCounter != null) {
-    //   pointCounter.setHits(this.records);
-    // }
   }
 
   public void updateLocal() {
-    System.out.println("Updating local");
+    System.out.println("Updating local...");
     records = RecordDao.getAll();
     for (Record record : records) {
-      System.out.println("x: " + record.getX() + ", y: " + record.getY() + ", r: " + record.getR() + ", result: "
+      System.out.println("-- x: " + record.getX() + ", y: " + record.getY() + ", r: "
+          + record.getR() + ", result: "
           + record.getHitString());
+    }
+    System.out.println("Fetched " + records.size() + " records.");
+    FacesContext facesContext = FacesContext.getCurrentInstance();
+    ServletContext servletContext = (ServletContext) facesContext.getExternalContext().getContext();
+    PointCounter pointCounter = (PointCounter) servletContext.getAttribute("pointCounterMBean");
+
+    System.out.println("setting hits, pointerCounter: " + pointCounter);
+    if (pointCounter != null) {
+      pointCounter.setHits(this.records);
     }
   }
 
