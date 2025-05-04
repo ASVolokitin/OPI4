@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["es2018", "dom"],
+    "module": "commonjs",
+    "outDir": "app/src/main/webapp/resources/js",
+    "rootDir": "app/src/main/webapp/resources/ts",
+    "esModuleInterop": true
+  },
+  "include": ["app/src/main/webapp/resources/ts/**/*.ts"]
+}
