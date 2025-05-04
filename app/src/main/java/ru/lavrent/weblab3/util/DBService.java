@@ -1,9 +1,22 @@
 package ru.lavrent.weblab3.util;
 
+import static org.eclipse.persistence.config.PersistenceUnitProperties.DDL_GENERATION;
+import static org.eclipse.persistence.config.PersistenceUnitProperties.JDBC_DRIVER;
+import static org.eclipse.persistence.config.PersistenceUnitProperties.JDBC_PASSWORD;
+import static org.eclipse.persistence.config.PersistenceUnitProperties.JDBC_URL;
+import static org.eclipse.persistence.config.PersistenceUnitProperties.JDBC_USER;
+import static org.eclipse.persistence.config.PersistenceUnitProperties.LOGGING_LEVEL;
+import static org.eclipse.persistence.config.PersistenceUnitProperties.LOGGING_SESSION;
+import static org.eclipse.persistence.config.PersistenceUnitProperties.LOGGING_THREAD;
+import static org.eclipse.persistence.config.PersistenceUnitProperties.LOGGING_TIMESTAMP;
+import static org.eclipse.persistence.config.PersistenceUnitProperties.TARGET_SERVER;
+import static org.eclipse.persistence.config.PersistenceUnitProperties.TRANSACTION_TYPE;
+
 import java.util.HashMap;
 import java.util.Map;
-import static org.eclipse.persistence.config.PersistenceUnitProperties.*;
+
 import org.eclipse.persistence.config.TargetServer;
+
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;

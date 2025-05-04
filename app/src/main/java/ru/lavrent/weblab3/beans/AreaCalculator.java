@@ -1,16 +1,13 @@
 package ru.lavrent.weblab3.beans;
 
-
 import javax.management.NotificationBroadcasterSupport;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Named;
-import jakarta.inject.Inject;
-
 
 @Named("areaCalculatorBean")
 @ApplicationScoped
-public class AreaCalculator extends NotificationBroadcasterSupport implements AreaCalculatorMBean{
+public class AreaCalculator extends NotificationBroadcasterSupport implements AreaCalculatorMBean {
 
     private double area;
 
@@ -26,6 +23,6 @@ public class AreaCalculator extends NotificationBroadcasterSupport implements Ar
     }
 
     // public synchronized void printArea() {
-    //     System.out.println(String.format("Current area = %f", calculateArea()));
+    // System.out.println(String.format("Current area = %f", calculateArea()));
     // }
 }
